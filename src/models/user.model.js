@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize'
 import { sequelize } from '../DB.js'
+import { Products } from './product.model.js'
 
 export const Users = sequelize.define('Users', {
   id: {
@@ -31,4 +32,13 @@ export const Users = sequelize.define('Users', {
   country: {
     type: DataTypes.STRING
   }
+})
+
+Users.hasMany(Products,{
+  foreignKey:'user_id',
+  sourceKey:'id'
+})
+Products.belongsTo(Users,{
+  foreignKey:'user_id',
+  targetKey:'id'
 })

@@ -4,7 +4,7 @@ export const register = async (req, res) => {
     return res.sendStatus(200)
   } catch (error) {
     console.error(error)
-    return res.sendStatus(500)
+     res.status(500).send('Error interno del servidor');
   }
 }
 
@@ -14,7 +14,7 @@ export const login = async (req, res) => {
     return res.sendStatus(200)
   } catch (error) {
     console.error(error)
-    return res.sendStatus(500)
+     res.status(500).send('Error interno del servidor');
   }
 }
 
@@ -24,6 +24,6 @@ export const logout = async (req, res) => {
     return res.sendStatus(200)
   } catch (error) {
     console.error(error)
-    return res.sendStatus(500)
+     res.status(500).send('Error interno del servidor');
   }
 }

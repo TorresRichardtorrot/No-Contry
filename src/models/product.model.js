@@ -18,12 +18,5 @@ export const Products = sequelize.define('Products', {
   },
   quantity: {
     type: DataTypes.INTEGER
-  },
-  id_category: {
-    type: DataTypes.INTEGER
-  },
-  id_user:{
-    type: DataTypes.INTEGER
   }
-
 })

@@ -1,8 +1,7 @@
 import app from './app.js'
 import { port } from './config.js'
 import { sequelize } from './DB.js'
-import './models/user.model.js'
-import './models/product.model.js'
+
 
 async function main () {
   try {
