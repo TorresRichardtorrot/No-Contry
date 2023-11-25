@@ -1,29 +1,22 @@
 import { DataTypes } from 'sequelize'
 import { sequelize } from '../DB.js'
 
-export const Products = sequelize.define('Products', {
+export const Details = sequelize.define('Details', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  name: {
-    type: DataTypes.STRING
-  },
-  price: {
+  id_order: {
     type: DataTypes.INTEGER
   },
-  description: {
-    type: DataTypes.STRING
+  id_product: {
+    type: DataTypes.INTEGER
   },
   quantity: {
     type: DataTypes.INTEGER
   },
-  id_category: {
-    type: DataTypes.INTEGER
-  },
-  id_user:{
+  total_price: {
     type: DataTypes.INTEGER
   }
-
 })
