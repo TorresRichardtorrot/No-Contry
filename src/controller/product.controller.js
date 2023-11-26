@@ -1,5 +1,6 @@
-import { Products } from "../models/product.model.js"
 //* 🟩=Listo,🟧=En proseso, 🟥=falta
+import { Products } from "../models/product.model.js"
+
 
 
 // ? 🟩Octener productos
@@ -17,11 +18,8 @@ export const getProducts = async (req, res) => {
 export const getProduct = async (req, res) => {
   const {id} = req.params
   try {
-    const products = await Products.findAll({
-      where: {
-        id
-      }
-    })
+    const products = await Products.findByPk(id)
+    if(!products) return res.status(404).send('No se a encontrado el producto');
     res.json(products)
   } catch (error) {
     console.log(error)
@@ -32,12 +30,14 @@ export const getProduct = async (req, res) => {
 // ? 🟧Crear producto
 export const createProduct = async (req, res) => {
   try {
-    const {name,price,description,quantity} = req.body
+    const {name,price,description,quantity,user_id,categories_id} = req.body
     const newProduct = await Products.create({
       name,
       description,
       price,
-      quantity
+      quantity,
+      user_id,
+      categories_id
     })
     res.status(200).json(newProduct)
   } catch (error) {
