@@ -5,8 +5,13 @@ import { Products } from "../models/product.model.js"
 
 // ? 🟩Octener productos
 export const getProducts = async (req, res) => {
+  const {id} = req.body
   try {
-    const products = await Products.findAll()
+    const products = await Products.findAll({
+      where:{
+        id
+      }
+    })
     res.json(products)
   } catch (error) {
     console.log(error)
