@@ -3,9 +3,9 @@ import { sequelize } from '../DB.js'
 
 export const Products = sequelize.define('Products', {
   id: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.UUID,
+    defaultValue: () => uuidv4(),
     primaryKey: true,
-    autoIncrement: true
   },
   name: {
     type: DataTypes.STRING
@@ -20,3 +20,4 @@ export const Products = sequelize.define('Products', {
     type: DataTypes.INTEGER
   }
 })
+
