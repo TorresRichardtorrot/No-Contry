@@ -5,7 +5,7 @@ import { sequelize } from './DB.js'
 
 async function main () {
   try {
-    await sequelize.sync({ force: true })
+    await sequelize.sync()
     console.log('Coneccion con DB')
     app.listen(port || 3000)
     console.log('*** Server ***', port)
